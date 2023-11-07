@@ -37,7 +37,7 @@
         </div>
       </div>
       <div class="modal-footer">
-           <button type="button" class="btn btn-dark">Submit</button>     
+           <button type="button" class="btn btn-dark" onclick="adduser()">Submit</button>     
            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
 
       </div>
