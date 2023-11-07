@@ -55,7 +55,37 @@
 
 
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-</body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.clouflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+      function adduser(){
+          var nameAdd = $("#completeName").val();
+          var emailAdd = $('#completeEmail').val();
+          var mobileAdd = $('#completeMobile').val();
+          var placeAdd = $('#completePlace').val();
+        
+          $.ajax({
+            url: 'insert.php',
+            method: 'POST',
+            data: {
+               nameSend: nameAdd,
+               emailSend: emailAdd,
+               mobileSend: mobileAdd,
+               placeSend: placeAdd
+              },
+            success: function(response){
+              // handle success response
+              console.log(response);
+            },
+            error: function(xhr, status, error){
+              // handle error response
+            }
+          });
+
+      }
+    </script>
+
+  </body>
 </html>
