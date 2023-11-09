@@ -50,6 +50,7 @@
             <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#completeModal">
                 Add new users
             </button>
+            <div id="displayDataTable"></div>
     </div>
 
 
@@ -60,6 +61,20 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
+      function displayData(){
+        var displayData = "true";
+        $.ajax({
+          url: 'display.php',
+          type: 'POST',
+          data: {
+            displaySend:displayData
+          },
+          success:function(data, status) {
+            $('#displayDataTable').html(data);)
+          }
+        })
+      }
+
       function adduser(){
           var nameAdd = $("#completeName").val();
           var emailAdd = $('#completeEmail').val();
@@ -77,13 +92,13 @@
               },
             success: function(response){
               // handle success response
-              console.log(response);
+              //console.log(response);
+                displayData();
             },
             error: function(xhr, status, error){
               // handle error response
             }
           });
-
       }
     </script>
 
